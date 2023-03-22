@@ -1,16 +1,18 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "declaration": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "jsx": "react",
-    "baseUrl": "./",
-    "paths": {
-      "@@/*": [".dumi/tmp/*"],
-      "zql-ui": ["src"],
-      "zql-ui/*": ["src/*", "*"]
-    }
-  },
-  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*", "types"]
+	"compilerOptions": {
+		"strict": true,
+		"declaration": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"jsx": "react",
+		"baseUrl": "./",
+		"paths": {
+			"@@/*": [".dumi/tmp/*"],
+			"zql-ui": ["src"],
+			"zql-ui/*": ["src/*", "*"],
+			"@": ["src"],
+			"@/*": ["src/*", "*"]
+		}
+	},
+	"include": [".dumi/**/*", ".dumirc.ts", "src/**/*", "types"]
 }

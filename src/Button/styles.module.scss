@@ -1,3 +1,69 @@
+$typeList: (
+  primary: ( bg: #1677ff, hoverBg: #4096ff ),
+  warning: ( bg: #e6a23c, hoverBg: #ebb563 ),
+  danger: ( bg: #ff4d4f, hoverBg: #ff7875 ),
+  info: ( bg: #909399, hoverBg: #a6a9ad ),
+  success: ( bg: #67c23a, hoverBg: #85ce61 )
+);
+
+$sizeList: (
+  large: ( width: 80px, height: 40px ),
+  middle: (width: 66px, height: 30px ),
+  small: ( width: 20px, height: 20px )
+);
+
+$shapeList: (
+  default: ( radius: 6px ),
+  circle: ( radius: 20px ),
+  round: ( radius: 50% )
+);
+
 .button {
-  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  @each $tag, $value in $typeList {
+    &[data-type='#{$tag}'] {
+      background: map-get($value, bg);
+      &:hover {
+        background: map-get($value, hoverBg);
+      }
+    }
+  }
+  @each $tag, $value in $sizeList {
+    &[data-size='#{$tag}'] {
+      min-width: map-get($value, width);
+      min-height: map-get($value, height);
+    }
+  }
+  @each $tag, $value in $shapeList {
+    &[data-shape='#{$tag}'] {
+      border-radius: map-get($value, radius);
+    }
+  }
+  &[data-disabled='true'] {
+    background: #ccc;
+    &:hover {
+      background: #ccc;
+    }
+    cursor: no-drop;
+  }
+}
+
+.rotate {
+  margin-right: 2px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
