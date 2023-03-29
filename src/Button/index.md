@@ -12,7 +12,6 @@ nav:
 | onClick  | 点击按钮事件 | (event) => void                                 | -       |
 | shape    | 设置按钮形状 | default \| circle \| round                      | default |
 | loading  | 加载状态     | boolean                                         | false   |
-| icon     | 按钮图标     | ReactNode                                       | -       |
 | disabled | 是否禁用     | boolean                                         | false   |
 
 ```tsx
@@ -23,7 +22,7 @@ const add = () => {
 };
 
 export default () => (
-	<Button title="button" type="success" size="middle" onClick={add} shape="default" loading={true} disabled={false}>
+	<Button type="success" size="middle" onClick={add} shape="default" loading={true} disabled={false}>
 		点击事件
 	</Button>
 );

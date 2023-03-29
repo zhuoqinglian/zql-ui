@@ -2,8 +2,8 @@
  * @Description: Button 组件
  * @Author: QJL
  * @Date: 2023-03-19 16:36
- * @LastEdit:
- * @LastEditTime:
+ * @LastEdit: QJL
+ * @LastEditTime: 2023+03-29 16:43
  */
 
 import Componnet from '@/types/component';
@@ -22,18 +22,20 @@ const Button: React.FC<Componnet.Button> = props => {
 		...props,
 	};
 
+	const buttonConfig = {
+		className: styles.button,
+		'data-type': defaultConfig.type,
+		'data-size': defaultConfig.size,
+		'data-disabled': defaultConfig.disabled,
+		'data-shape': defaultConfig.shape,
+		disabled: defaultConfig.disabled,
+		onClick: defaultConfig.onClick,
+	};
+
 	return (
 		<React.Fragment>
-			<button
-				className={styles.button}
-				data-type={defaultConfig.type}
-				data-size={defaultConfig.size}
-				data-disabled={defaultConfig.disabled}
-				data-shape={defaultConfig.shape}
-				disabled={defaultConfig.disabled}
-				onClick={defaultConfig.onClick}
-			>
-				{defaultConfig.loading && <Loading className={styles.rotate} width={20} height={20} />}
+			<button {...buttonConfig}>
+				{defaultConfig.loading && <Loading className={styles.rotate} />}
 				<span>{defaultConfig.children}</span>
 			</button>
 		</React.Fragment>
